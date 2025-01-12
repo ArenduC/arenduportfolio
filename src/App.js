@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import "./style/globalStyle.css";
 
@@ -11,6 +12,19 @@ function App() {
     "/Figma.svg",
     "/Blender.svg",
   ];
+  const skillImageBackground = [
+    "/skillBackground01.svg",
+    "/skillBackground02.svg",
+  ];
+
+  const [isNavigate, setIsNavigate] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState(0);
+
+  const skillViewController = (key) => {
+    setIsNavigate((data) => !data);
+    setSelectedSkill(key);
+    console.log("isClick", isNavigate, key);
+  };
   return (
     <div className="backgroundColor">
       <div className="viewSegment">
@@ -36,23 +50,6 @@ function App() {
               building innovative and high-performing applications.
             </span>
           </div>
-          <div className="headerSegmentView">
-            {skillImage.map((data, index) =>
-              index === 3 ? (
-                <div className="divider"></div>
-              ) : (
-                <img
-                  src={data}
-                  alt=""
-                  style={{
-                    width: "50px",
-                    borderRadius: "50%",
-                    marginRight: index === 2 ? "0rem" : "1rem",
-                  }}
-                />
-              )
-            )}
-          </div>
         </div>
         <div className="footerView">
           <span>Senior developer</span>
@@ -64,6 +61,80 @@ function App() {
       <div className="portfolioImageSegment2"></div>
       <div className="portfolioImage">
         <img src={profileImage[2]} alt="Profile" style={{ width: "250px" }} />
+      </div>
+      <div
+        className="skillView"
+        style={{
+          backgroundColor: isNavigate ? "#292925" : "#29292500",
+          opacity: isNavigate ? 1 : 1,
+          transition: isNavigate ? ".5s" : "4s",
+        }}
+      >
+        <div className="viewSegment">
+          <div
+            className="skillSegmentBackground"
+            style={{
+              opacity: isNavigate ? 1 : 0,
+            }}
+          >
+            <img
+              src={skillImageBackground[selectedSkill]}
+              alt="Profile"
+              style={{
+                marginTop: isNavigate ? "0%" : "100%",
+                opacity: isNavigate ? 1 : 0,
+                transition: ".5s",
+              }}
+            />
+          </div>
+          <div
+            className="skillSegmentBlurBackground"
+            style={{
+              backdropFilter: isNavigate ? "blur(80px)" : "blur(0px)",
+              backgroundColor: isNavigate ? "#29292580" : "#29292500",
+            }}
+          ></div>
+          <div
+            className="skillViewHeaderSegmentView"
+            style={{ marginTop: isNavigate ? "0%" : "25%" }}
+          >
+            {skillImage.map((data, index) =>
+              index === 3 ? (
+                <div>
+                  <div
+                    className="divider"
+                    style={{
+                      opacity: isNavigate ? 0 : 1,
+                      transition: ".5s",
+                      display: isNavigate ? "none" : "block",
+                    }}
+                  ></div>
+                </div>
+              ) : (
+                <img
+                  key={index}
+                  className="imageLink"
+                  src={data}
+                  alt=""
+                  onClick={() => skillViewController(index)}
+                  style={{
+                    width: isNavigate
+                      ? index == selectedSkill
+                        ? "50px"
+                        : "0px"
+                      : "40px",
+                    borderRadius: "50%",
+                    color: "#f1d500",
+                    transformOrigin: "center",
+                    marginRight:
+                      index === 2 ? "0rem" : isNavigate ? "0rem" : "1rem",
+                    transition: ".5s",
+                  }}
+                />
+              )
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

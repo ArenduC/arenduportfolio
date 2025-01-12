@@ -42,7 +42,7 @@
   }
 
   50% {
-    opacity: 1;
+    opacity: 0.5;
     transform: translateY(50px);
   }
 
@@ -164,4 +164,57 @@
   position: absolute;
   right: 0;
   bottom: -0.4rem;
+}
+.imageLink {
+  display: block;
+  transform: scale(1);
+  transition: transform 0.3s ease, border-width 0.3s ease;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--folioColor1);
+}
+.imageLink:hover {
+  transform: scale(1.1);
+  transform-origin: center;
+  cursor: pointer;
+  border-width: 0.3rem;
+}
+.skillView {
+  display: block;
+  position: absolute;
+  padding: 4rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.skillViewHeaderSegmentView {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  animation: scaleInOut 2s ease-in-out;
+  transform-origin: left;
+  z-index: 2;
+  transition: 1.2s;
+}
+.skillSegmentBackground {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1.2s;
+}
+.skillSegmentBlurBackground {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1.2s;
 }
