@@ -90,7 +90,7 @@ function App() {
           <div
             className="skillSegmentBlurBackground"
             style={{
-              backdropFilter: isNavigate ? "blur(80px)" : "blur(0px)",
+              backdropFilter: isNavigate ? "blur(90px)" : "blur(0px)",
               backgroundColor: isNavigate ? "#29292580" : "#29292500",
             }}
           ></div>
