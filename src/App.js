@@ -1,29 +1,76 @@
 import { useState } from "react";
 import "./App.css";
 import "./style/globalStyle.css";
+import AppCarousel from "./screen/AppCarousel.js";
 
 function App() {
-  const profileImage = ["/2068185.svg", "/2068189.svg", "/arendu.svg"];
+  const baseUrl = "https://ArenduC.github.io/arenduportfolio";
+  const profileImage = [
+    `${baseUrl}/2068185.svg`,
+    `${baseUrl}/2068189.svg`,
+    `${baseUrl}/arendu.svg`,
+  ];
+  const skillLabel = [
+    "Flutter",
+    "React Js",
+    "Angular",
+    "React Native",
+    "Figma",
+    "Blender",
+  ];
+
+  const skillProgram = [
+    ["Airport management", "Attendance management", "Mess manager"],
+    ["Data insight tools", "EKYC", "Society information web app"],
+  ];
+
+  const skillProgramDetails = [
+    [
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+    ],
+  ];
   const skillImage = [
-    "/flutter.svg",
-    "/React js.svg",
-    "/Angular.svg",
-    "/React native.svg",
-    "/Figma.svg",
-    "/Blender.svg",
+    `${baseUrl}/flutter.svg`,
+    `${baseUrl}/React js.svg`,
+    `${baseUrl}/Angular.svg`,
+    `${baseUrl}/React native.svg`,
+    `${baseUrl}/Figma.svg`,
+    `${baseUrl}/Blender.svg`,
   ];
   const skillImageBackground = [
-    "/skillBackground01.svg",
-    "/skillBackground02.svg",
+    `${baseUrl}/skillBackground01.svg`,
+    `${baseUrl}/skillBackground02.svg`,
+  ];
+  const imageMockup = [
+    `${baseUrl}/flutterAvio01.svg`,
+    `${baseUrl}/flutterAvio02.svg`,
   ];
 
   const [isNavigate, setIsNavigate] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(0);
 
   const skillViewController = (key) => {
     setIsNavigate((data) => !data);
     setSelectedSkill(key);
     console.log("isClick", isNavigate, key);
+  };
+  const skillOptionClick = (key) => {
+    setSelectedOption(key);
   };
   return (
     <div className="backgroundColor">
@@ -94,45 +141,118 @@ function App() {
               backgroundColor: isNavigate ? "#29292580" : "#29292500",
             }}
           ></div>
+
           <div
             className="skillViewHeaderSegmentView"
-            style={{ marginTop: isNavigate ? "0%" : "25%" }}
+            style={{ marginTop: isNavigate ? "0rem" : "25rem" }}
           >
-            {skillImage.map((data, index) =>
-              index === 3 ? (
-                <div>
-                  <div
-                    className="divider"
+            <div className="skillIconHeader">
+              {skillImage.map((data, index) =>
+                index === 3 ? (
+                  <div>
+                    <div
+                      className="divider"
+                      style={{
+                        opacity: isNavigate ? 0 : 1,
+                        transition: ".5s",
+                        width: isNavigate ? "0rem" : ".2rem",
+                        display: isNavigate ? "none" : "block",
+                      }}
+                    ></div>
+                  </div>
+                ) : (
+                  <img
+                    key={index}
+                    className="imageLink"
+                    src={data}
+                    alt=""
+                    onClick={() => skillViewController(index)}
                     style={{
-                      opacity: isNavigate ? 0 : 1,
+                      width: isNavigate
+                        ? index == selectedSkill
+                          ? "50px"
+                          : "0px"
+                        : "40px",
+                      borderRadius: "50%",
+                      color: "#f1d500",
+                      transformOrigin: "center",
+                      marginRight:
+                        index === 2 ? "0rem" : isNavigate ? "0rem" : "1rem",
                       transition: ".5s",
-                      display: isNavigate ? "none" : "block",
                     }}
-                  ></div>
-                </div>
-              ) : (
-                <img
-                  key={index}
-                  className="imageLink"
-                  src={data}
-                  alt=""
-                  onClick={() => skillViewController(index)}
+                  />
+                )
+              )}
+              <span
+                style={{
+                  opacity: isNavigate ? 1 : 0,
+                  fontSize: isNavigate ? "1.5rem" : "0rem",
+                  fontWeight: 700,
+                  color: "#f1d500",
+                  transition: ".8s",
+                  marginLeft: isNavigate ? "1rem" : "0rem",
+                }}
+              >
+                {skillLabel[selectedSkill]}
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="projectBackground"
+            style={{
+              opacity: isNavigate ? 1 : 0,
+              marginTop: isNavigate ? "60px" : "25%",
+            }}
+          >
+            <div className="skillOptionView">
+              {skillProgram[selectedSkill].map((data, index) => (
+                <span
+                  onClick={() => skillOptionClick(index)}
                   style={{
-                    width: isNavigate
-                      ? index == selectedSkill
-                        ? "50px"
-                        : "0px"
-                      : "40px",
-                    borderRadius: "50%",
-                    color: "#f1d500",
-                    transformOrigin: "center",
-                    marginRight:
-                      index === 2 ? "0rem" : isNavigate ? "0rem" : "1rem",
+                    fontWeight: index === selectedOption ? 700 : 200,
+                    fontSize: index === selectedOption ? "1rem" : ".9rem",
                     transition: ".5s",
                   }}
+                >
+                  {data}
+                </span>
+              ))}
+              <div className="skillDetailsSegment">
+                {skillProgramDetails[0].map((data, index) => (
+                  <div className="skillIndividualSegment">
+                    <span
+                      style={{
+                        fontWeight: 700,
+                        fontSize: "1rem",
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      {data["label"]}
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: 200,
+                        fontSize: ".9rem",
+                      }}
+                    >
+                      {data["details"]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div>
+                {" "}
+                <AppCarousel
+                  items={imageMockup}
+                  autoPlay={true}
+                  interval={5000}
                 />
-              )
-            )}
+              </div>
+            </div>
+            <div></div>
           </div>
         </div>
       </div>
