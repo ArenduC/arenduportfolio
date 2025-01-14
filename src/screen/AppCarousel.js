@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../style/globalStyle.css";
 
-const AppCarousel = ({ items, autoPlay = true, interval = 5000 }) => {
+const AppCarousel = ({ items, autoPlay = true, interval = 2000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsCount = items.length;
   const autoPlayRef = useRef();
@@ -9,6 +9,7 @@ const AppCarousel = ({ items, autoPlay = true, interval = 5000 }) => {
   // Navigate to the next slide
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % itemsCount);
+    console.log("itemCount", itemsCount, currentIndex);
   };
 
   // Navigate to the previous slide

@@ -2,64 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import "./style/globalStyle.css";
 import AppCarousel from "./screen/AppCarousel.js";
+import {
+  skillProgramDetails,
+  profileImage,
+  skillLabel,
+  skillProgram,
+  skillImage,
+  skillImageBackground,
+  imageMockup,
+} from "../src/data/PortfolioData.js";
+import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 
 function App() {
-  const baseUrl = "https://ArenduC.github.io/arenduportfolio";
-  const profileImage = [
-    `${baseUrl}/2068185.svg`,
-    `${baseUrl}/2068189.svg`,
-    `${baseUrl}/arendu.svg`,
-  ];
-  const skillLabel = [
-    "Flutter",
-    "React Js",
-    "Angular",
-    "React Native",
-    "Figma",
-    "Blender",
-  ];
-
-  const skillProgram = [
-    ["Airport management", "Attendance management", "Mess manager"],
-    ["Data insight tools", "EKYC", "Society information web app"],
-  ];
-
-  const skillProgramDetails = [
-    [
-      {
-        label: "Firebase Notification",
-        details:
-          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-      },
-      {
-        label: "Firebase Notification",
-        details:
-          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-      },
-      {
-        label: "Firebase Notification",
-        details:
-          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-      },
-    ],
-  ];
-  const skillImage = [
-    `${baseUrl}/flutter.svg`,
-    `${baseUrl}/React js.svg`,
-    `${baseUrl}/Angular.svg`,
-    `${baseUrl}/React native.svg`,
-    `${baseUrl}/Figma.svg`,
-    `${baseUrl}/Blender.svg`,
-  ];
-  const skillImageBackground = [
-    `${baseUrl}/skillBackground01.svg`,
-    `${baseUrl}/skillBackground02.svg`,
-  ];
-  const imageMockup = [
-    `${baseUrl}/flutterAvio01.svg`,
-    `${baseUrl}/flutterAvio02.svg`,
-  ];
-
   const [isNavigate, setIsNavigate] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState(0);
   const [selectedOption, setSelectedOption] = useState(0);
@@ -71,6 +25,11 @@ function App() {
   };
   const skillOptionClick = (key) => {
     setSelectedOption(key);
+  };
+  const backHandler = () => {
+    setIsNavigate(false);
+    setSelectedSkill(0);
+    setSelectedOption(0);
   };
   return (
     <div className="backgroundColor">
@@ -125,7 +84,7 @@ function App() {
             }}
           >
             <img
-              src={skillImageBackground[selectedSkill]}
+              src={skillProgram[selectedSkill][selectedOption].image}
               alt="Profile"
               style={{
                 marginTop: isNavigate ? "0%" : "100%",
@@ -208,18 +167,21 @@ function App() {
             <div className="skillOptionView">
               {skillProgram[selectedSkill].map((data, index) => (
                 <span
+                  className="optionSegment"
                   onClick={() => skillOptionClick(index)}
                   style={{
                     fontWeight: index === selectedOption ? 700 : 200,
-                    fontSize: index === selectedOption ? "1rem" : ".9rem",
+                    fontSize: index === selectedOption ? "1.2rem" : ".9rem",
                     transition: ".5s",
+                    cursor: "pointer",
+                    marginBottom: ".5rem",
                   }}
                 >
-                  {data}
+                  {data["option"]}
                 </span>
               ))}
               <div className="skillDetailsSegment">
-                {skillProgramDetails[0].map((data, index) => (
+                {skillProgramDetails[selectedOption].map((data, index) => (
                   <div className="skillIndividualSegment">
                     <span
                       style={{
@@ -241,14 +203,25 @@ function App() {
                   </div>
                 ))}
               </div>
+
+              <div className="segmentAnimation">
+                <ArrowCircleLeftRoundedIcon
+                  style={{
+                    cursor: "pointer",
+                    fontSize: isNavigate ? "1.3rem" : "0rem",
+                    transition: ".5s",
+                  }}
+                  onClick={() => backHandler()}
+                />
+              </div>
             </div>
             <div>
               <div>
                 {" "}
                 <AppCarousel
-                  items={imageMockup}
+                  items={imageMockup[selectedSkill][selectedOption]}
                   autoPlay={true}
-                  interval={5000}
+                  interval={6000}
                 />
               </div>
             </div>

@@ -239,17 +239,17 @@
   max-width: 400px;
   overflow: hidden;
   margin: 0 auto;
+  height: 600px;
 }
 
 .carousel-container {
   display: flex;
-
   transition: transform 0.5s ease-in-out;
+  width: 100%; /* Adjust dynamically based on items count */
 }
 
 .carousel-item {
   display: flex;
-
   align-items: center;
   justify-content: center;
   min-width: 100%;
@@ -260,7 +260,7 @@
 
 .carousel-image {
   max-width: 80%;
-  max-height: 450px;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 20px;
 }
@@ -304,7 +304,7 @@
 }
 
 .indicator.active {
-  background: white;
+  background: var(--folioColor1);
 }
 .skillIconHeader {
   display: flex;
@@ -333,4 +333,44 @@
   flex: 0 1 calc(50% - 1rem); /* Each item takes 50% of the row minus the gap */
   flex-direction: column;
   box-sizing: border-box; /* Include padding and borders in width */
+}
+.optionSegment {
+  color: var(--folioColor4);
+  transition: 0.3s;
+  scale: 1;
+}
+.optionSegment:hover {
+  color: var(--folioColor1);
+  scale: 1.01;
+}
+
+.segmentAnimation {
+  border-style: solid;
+  display: flex;
+  position: absolute;
+  justify-content: start;
+  align-items: start;
+
+  border-radius: 100%;
+  transform-origin: center;
+  position: absolute; /* Fixes the element to the viewport */
+
+  bottom: 4rem;
+}
+
+.segmentAnimation:hover {
+  animation: borderPulse 1.5s infinite;
+  /* Apply animation on hover */
+}
+
+@keyframes borderPulse {
+  0% {
+    border-width: 2px;
+  }
+  50% {
+    border-width: 8px; /* Maximum border width */
+  }
+  100% {
+    border-width: 2px; /* Reset to initial border width */
+  }
 }
