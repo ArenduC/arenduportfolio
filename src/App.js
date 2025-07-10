@@ -31,6 +31,18 @@ function App() {
     setSelectedSkill(0);
     setSelectedOption(0);
   };
+
+  const styleControl = (data) => {
+    switch (data) {
+      case 0:
+        return { width: 400, height: 600 };
+      case 1:
+        return { width: 600, height: 450 };
+
+      default:
+        return { width: 400, height: 600 };
+    }
+  };
   return (
     <div className="backgroundColor">
       <div className="viewSegment">
@@ -181,27 +193,29 @@ function App() {
                 </span>
               ))}
               <div className="skillDetailsSegment">
-                {skillProgramDetails[selectedOption].map((data, index) => (
-                  <div className="skillIndividualSegment">
-                    <span
-                      style={{
-                        fontWeight: 700,
-                        fontSize: "1rem",
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      {data["label"]}
-                    </span>
-                    <span
-                      style={{
-                        fontWeight: 200,
-                        fontSize: ".9rem",
-                      }}
-                    >
-                      {data["details"]}
-                    </span>
-                  </div>
-                ))}
+                {skillProgramDetails[selectedSkill][selectedOption].map(
+                  (data, index) => (
+                    <div className="skillIndividualSegment">
+                      <span
+                        style={{
+                          fontWeight: 700,
+                          fontSize: "1rem",
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        {data["label"]}
+                      </span>
+                      <span
+                        style={{
+                          fontWeight: 200,
+                          fontSize: ".9rem",
+                        }}
+                      >
+                        {data["details"]}
+                      </span>
+                    </div>
+                  )
+                )}
               </div>
 
               <div className="segmentAnimation">
@@ -222,6 +236,8 @@ function App() {
                   items={imageMockup[selectedSkill][selectedOption]}
                   autoPlay={true}
                   interval={6000}
+                  width={styleControl(selectedSkill)["width"]}
+                  height={styleControl(selectedSkill)["height"]}
                 />
               </div>
             </div>

@@ -1,54 +1,70 @@
 export const skillProgramDetails = [
   [
-    {
-      label: "Firebase Notification",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Firebase Notification",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Firebase Notification",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
+    [
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+    ],
+    [
+      {
+        label: "Real time location update",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Punch-in punch-out",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Visualization ",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+    ],
+    [
+      {
+        label: "Real time location update",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Punch-in punch-out",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Visualization ",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+    ],
   ],
   [
-    {
-      label: "Real time location update",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Punch-in punch-out",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Visualization ",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-  ],
-  [
-    {
-      label: "Real time location update",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Punch-in punch-out",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
-    {
-      label: "Visualization ",
-      details:
-        "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
-    },
+    [
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+      {
+        label: "Firebase Notification",
+        details:
+          "I implemented Firebase Notifications to efficiently manage and deliver critical updates in an airport management app. This feature ensures that officers receive real-time notifications about operational changes, such as Baggage Belt Reassignments,Gate Changes,Aircraft Stand Updates, Scheduled Maintenance Alerts",
+      },
+    ],
   ],
 ];
 const baseUrl = "https://ArenduC.github.io/arenduportfolio";
@@ -84,7 +100,7 @@ export const skillProgram = [
 
   [
     {
-      image: `${baseUrl}/flutterHRMSBackground01.svg`,
+      image: `${baseUrl}/reactBackground.svg`,
       option: "Data insight tools",
     },
     { image: `${baseUrl}/flutterHRMSBackground01.svg`, option: "EKYC" },
@@ -105,7 +121,7 @@ export const skillImage = [
 ];
 export const skillImageBackground = [
   `${baseUrl}/skillBackground01.svg`,
-  `${baseUrl}/skillBackground02.svg`,
+  `${baseUrl}/reactBackground.svg`,
 ];
 export const imageMockup = [
   [
@@ -123,6 +139,13 @@ export const imageMockup = [
       `${baseUrl}/flutterMaca02.png`,
       `${baseUrl}/flutterMaca03.png`,
       `${baseUrl}/flutterMaca01.png`,
+    ],
+  ],
+  [
+    [
+      `${baseUrl}/reactDIT01.svg`,
+      `${baseUrl}/reactDIT01.svg`,
+      `${baseUrl}/reactDIT01.svg`,
     ],
   ],
 ];

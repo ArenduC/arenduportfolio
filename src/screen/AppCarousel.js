@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../style/globalStyle.css";
 
-const AppCarousel = ({ items, autoPlay = true, interval = 2000 }) => {
+const AppCarousel = ({
+  items,
+  autoPlay = true,
+  interval = 2000,
+  width = 400,
+  height = 450,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsCount = items.length;
   const autoPlayRef = useRef();
@@ -31,7 +37,7 @@ const AppCarousel = ({ items, autoPlay = true, interval = 2000 }) => {
   }, [interval]);
 
   return (
-    <div className="carousel">
+    <div className="carousel" style={{ maxWidth: width, height: height }}>
       <div
         className="carousel-container"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
